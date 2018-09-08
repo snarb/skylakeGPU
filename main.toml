@@ -1,0 +1,66 @@
+#  list of pot - scaled bet sizes to use in tree
+#  @field bet_sizing.  i. e. a list of fractions of the pot which are allowed 
+#  as bets, sorted in ascending order. Note: Should be integer fraction with current code.
+bet_sizing = [1.0]
+
+# The number of card suits in the deck
+suit_count = 2
+# The number of card ranks in the deck
+rank_count = 3
+
+ante = 100
+stack = 20000
+cfr_iters = 1000
+cfr_skip_iters = 500
+
+data_path = "./data/"
+gen_batch_size = 10
+
+acpc_server = "127.0.0.1"
+acpc_port = 20000 
+
+# Restore and save lookahed results into the file
+use_lookahed_results_cache = false
+
+# <= Until this street inclusive we will use lookahed_results_cache
+min_street_to_cache = 1
+
+# Use masking for all folds when free check is possible. Not only for root fold like in original implementation.b
+# Is incompatible with testing.
+mask_all_empty_folds = true
+
+# The number of betting rounds in the game
+# streets_count = 4
+streets_count = 2
+
+# The number of board cards per street.
+# Index is street id. Should match with streets_count.
+# bord_cards_count = [0, 3, 1, 1]
+board_cards_count = [0, 1]
+
+# First acting player after the flop. 0 For the Leduc. 1 For the Texas NL
+after_the_flop_acting_player = 0
+
+# Override Leduc game specific settings
+force_leduc_game = true
+
+# Override Heads-up no-limit Texas hold�em (HUNL) game specific settings
+force_HUNL_game = false
+
+# Converts cards to the canonical form
+canon_form = false
+
+# Maximum number of concurrent threads
+num_threads = -1
+
+# Probability in percents 0%-100% that equity call matrix will be processed on GPU if available
+gpu_cpu_rate = 100
+
+# Canon index to start processing
+start_canon_index = 0
+
+# Canon index to stop processing
+end_canon_index = -1
+
+# Randomly chose id to solve
+random_id_selection = true
