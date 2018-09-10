@@ -51,7 +51,7 @@ endif
 all: IntegrationTests
 
 dependents:
-	-cd /home/brans/repos/deepstack/DeepStackCpp/ReleaseSkylakeGPU && $(MAKE) all
+	-cd /home/brans/repos/deepstack/DeepStackCpp/ReleaseSkylakeGPU && $(MAKE) clean all
 
 # Tool invocations
 IntegrationTests: $(OBJS) $(USER_OBJS) /home/brans/repos/deepstack/DeepStackCpp/ReleaseSkylakeGPU/libDeepStack.a
