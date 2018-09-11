@@ -51,13 +51,13 @@ endif
 all: IntegrationTests
 
 dependents:
-	-cd /home/brans/repos/deepstack/DeepStackCpp/ReleaseSkylakeGPU && $(MAKE) clean all
+	-cd /home/brans/repos/deepstack/DeepStackCpp/ReleaseSkylakeCPU && $(MAKE) clean all
 
 # Tool invocations
-IntegrationTests: $(OBJS) $(USER_OBJS) /home/brans/repos/deepstack/DeepStackCpp/ReleaseSkylakeGPU/libDeepStack.a
+IntegrationTests: $(OBJS) $(USER_OBJS) /home/brans/repos/deepstack/DeepStackCpp/ReleaseSkylakeCPU/libDeepStack.a
 	@echo 'Building target: $@'
 	@echo 'Invoking: Intel C++ Linker'
-	icpc -L/home/brans/repos/deepstack/DeepStackCpp/ReleaseSkylakeGPU/ -L/usr/local/cuda/lib64/ -L"/opt/intel/compilers_and_libraries_2018/linux/mkl/lib/intel64_lin/" -L/home/brans/repos/deepstack/ziplib/Bin/ -O3 -o "IntegrationTests" $(OBJS) $(USER_OBJS) $(LIBS)
+	icpc -qopenmp-stubs -L/home/brans/repos/deepstack/DeepStackCpp/ReleaseSkylakeCPU/ -L"/opt/intel/compilers_and_libraries_2018/linux/mkl/lib/intel64_lin/" -L/home/brans/repos/deepstack/ziplib/Bin/ -O3 -o "IntegrationTests" $(OBJS) $(USER_OBJS) $(LIBS)
 	@echo 'Finished building target: $@'
 	@echo ' '
 
@@ -67,6 +67,6 @@ clean:
 	-@echo ' '
 
 .PHONY: all clean dependents
-/home/brans/repos/deepstack/DeepStackCpp/ReleaseSkylakeGPU/libDeepStack.a:
+/home/brans/repos/deepstack/DeepStackCpp/ReleaseSkylakeCPU/libDeepStack.a:
 
 -include ../makefile.targets
