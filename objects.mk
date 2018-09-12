@@ -4,5 +4,5 @@
 
 USER_OBJS :=
 
-LIBS := -lDeepStack -lmkl_intel_lp64 -lzip -lmkl_intel_thread -lmkl_core -liomp5
+LIBS := -lDeepStack -lcudart_static -lrt -lpthread -lmkl_intel_lp64 -lcublas -lzip -lmkl_intel_thread -lmkl_core -liomp5
 

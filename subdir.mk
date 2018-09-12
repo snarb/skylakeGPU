@@ -26,7 +26,7 @@ CPP_DEPS += \
 %.o: ../%.cpp
 	@echo 'Building file: $<'
 	@echo 'Invoking: Intel C++ Compiler'
-	icpc -O3 -qopt-prefetch=2 -inline-level=2 -I"/home/brans/repos/deepstack/DeepStackCpp" -I"/home/brans/repos/deepstack/IntegrationTests/../OMPEval" -I"/home/brans/repos/deepstack/IntegrationTests/../eigen" -I"/opt/intel/compilers_and_libraries_2018/linux/mkl/include" -I"/home/brans/repos/deepstack/IntegrationTests/../DeepStackCpp/" -I"/home/brans/repos/deepstack/IntegrationTests/../ziplib/Source/ZipLib" -std=c++14 -qopenmp-stubs -fp-model fast=2 -mtune=skylake -MMD -MP -MF"$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -c -o "$@" "$<"
+	icpc -O3 -qopt-prefetch=2 -inline-level=2 -I"/home/brans/repos/deepstack/DeepStackCpp" -I/usr/local/cuda/include/ -I"/home/brans/repos/deepstack/IntegrationTests/../OMPEval" -I"/home/brans/repos/deepstack/IntegrationTests/../eigen" -I"/opt/intel/compilers_and_libraries_2018/linux/mkl/include" -I"/home/brans/repos/deepstack/IntegrationTests/../DeepStackCpp/" -I"/home/brans/repos/deepstack/IntegrationTests/../ziplib/Source/ZipLib" -DUSE_GPU -std=c++14 -fp-model fast=2 -mtune=skylake -MMD -MP -MF"$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -c -o "$@" "$<"
 	@echo 'Finished building: $<'
 	@echo ' '
 
