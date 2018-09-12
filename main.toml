@@ -10,10 +10,10 @@ rank_count = 3
 
 ante = 100
 stack = 20000
-cfr_iters = 1000
-cfr_skip_iters = 500
+cfr_iters = 1800
+cfr_skip_iters = 1400
 
-data_path = "./data/"
+data_path = "C:\\data\\"
 gen_batch_size = 10
 
 acpc_server = "127.0.0.1"
@@ -60,7 +60,4 @@ gpu_cpu_rate = 100
 start_canon_index = 0
 
 # Canon index to stop processing
-end_canon_index = -1
-
-# Randomly chose id to solve
-random_id_selection = true
+end_canon_index = 1000
